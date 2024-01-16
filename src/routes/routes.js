@@ -15,7 +15,7 @@ const router = Router();
 
 
 
-router.get('/', postLogin);
+router.post('/', postLogin);
 router.post('/register', postRegister);
 router.post('/solicitud', postPosibleUser);
 
