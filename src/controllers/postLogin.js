@@ -4,7 +4,7 @@ const user = require('../models/user')
 const postLogin = async (req, res) => {
    try{
 
-    console.log(User);
+    console.log(user);
     //   const {id} =  req.params;
 
     //   const usuario = await User.findByPk(id);
