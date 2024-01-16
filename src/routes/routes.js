@@ -1,14 +1,21 @@
 const { Router } = require('express');
-const { pool } = require('../../index')
+const pg =require("pg")
+const {config} = require("dotenv");
+const { postLogin } = require('../controllers/postLogin');
 
+
+config();
+
+const pool = new pg.Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+});
 
 const router = Router();
 
 
 
-router.get('/', (req, res) => {
-    res.send('Hola mundo'); 
-});
+router.get('/', postLogin);
 
 router.get('/pong', async (req, res) => {
     try {

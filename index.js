@@ -1,14 +1,14 @@
 const server = require( './server' );
-const pg =require("pg")
-const {config} = require("dotenv");
+// const pg =require("pg")
+// const {config} = require("dotenv");
 
 
-config();
+// config();
 
-const pool = new pg.Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
-});
+// const pool = new pg.Pool({
+//     connectionString: process.env.DATABASE_URL,
+//     ssl: true
+// });
 
 
 
@@ -31,4 +31,4 @@ const pool = new pg.Pool({
     console.log('Server listening on port 3000');
 });
 
-module.exports =  pool
+// module.exports =  pool
