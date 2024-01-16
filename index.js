@@ -1,6 +1,7 @@
 import express from "express";
 import pg from "pg";
 import { config } from "dotenv";
+import getUserId from "./src/controllers/postLogin"
 
 config();
 
@@ -16,9 +17,7 @@ const pool = new pg.Pool({
 // });
 
 
-app.get('/', (req, res) => {
-    res.send('Hola mundo'); 
-});
+app.get('/', (getUserIds) )
 
 app.get('/pong', async (req, res) => {
     try {
