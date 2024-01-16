@@ -2,7 +2,7 @@ const { Router } = require('express');
 const pg =require("pg")
 const {config} = require("dotenv");
 const { postLogin } = require('../controllers/postLogin');
-
+const { postRegister } = require('../controllers/postRegister')
 
 config();
 
@@ -16,7 +16,7 @@ const router = Router();
 
 
 router.get('/', postLogin);
-
+router.post('/register', postRegister);
 router.get('/pong', async (req, res) => {
     try {
       const result = await pool.query('SELECT NOW()');
