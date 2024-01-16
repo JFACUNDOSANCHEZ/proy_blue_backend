@@ -1,7 +1,7 @@
 const { DataTypes }=require('sequelize');
 
 module.exports = (sequelize) => {
-  const user = sequelize.define('User', {
+  const User = sequelize.define('User', {
     nombreUsuario: {
       type: DataTypes.STRING,
       allowNull: false
@@ -30,5 +30,5 @@ module.exports = (sequelize) => {
     }
   }, { timestamps: true });
 
-  return user;
+  return User;
 };

@@ -1,4 +1,4 @@
-const user = require('../models/user')
+const {User} = require('../models/user')
 const {  JWT_SECRET } = process.env;
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
@@ -13,8 +13,8 @@ const postLogin = async (req, res) => {
         return res.status(400).send('Faltan Datos');
       }
       
-      console.log(user);
-      const usuarioValido = await user.findOne({ where: { correoElectronico: correoElectronico } });
+      console.log(User);
+      const usuarioValido = await User.findOne({ where: { correoElectronico: correoElectronico } });
   console.log("ACA ESTA EL USUARIO " + usuarioValido);
       if (!usuarioValido) {
         return res.status(408).json({ mensaje: 'Credenciales inválidas' });
