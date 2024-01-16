@@ -17,6 +17,7 @@ const router = Router();
 
 router.get('/', postLogin);
 router.post('/register', postRegister);
+router.get('/getPosibleUser', getAllPosibleUser)
 router.get('/pong', async (req, res) => {
     try {
       const result = await pool.query('SELECT NOW()');
