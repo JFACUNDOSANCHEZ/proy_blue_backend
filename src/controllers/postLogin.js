@@ -1,7 +1,7 @@
-import User from '../models/user'
+const user = require('../models/user')
 
 
-const getUserId = async (req, res) => {
+const postLogin = async (req, res) => {
    try{
 
     console.log(User);
@@ -19,4 +19,6 @@ const getUserId = async (req, res) => {
    }
 }
 
-export default getUserId
+module.exports ={
+    postLogin
+}
