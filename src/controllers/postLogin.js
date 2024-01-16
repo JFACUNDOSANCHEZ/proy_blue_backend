@@ -5,12 +5,12 @@ const postLogin = async (req, res) => {
    try{
 
     console.log(User);
-      const {id} =  req.params;
+    //   const {id} =  req.params;
 
-      const usuario = await User.findByPk(id);
+    //   const usuario = await User.findByPk(id);
   
          
-          res.status(200).json(usuario)
+          res.status(200).send('Holi')
       
   
       }catch (error) {
