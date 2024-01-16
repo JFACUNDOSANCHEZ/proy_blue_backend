@@ -3,7 +3,7 @@ const pg =require("pg")
 const {config} = require("dotenv");
 const { postLogin } = require('../controllers/postLogin');
 const { postRegister } = require('../controllers/postRegister')
-
+const  {postPosibleUser} = require('../controllers/postPosibleUser')
 config();
 
 const pool = new pg.Pool({
@@ -17,7 +17,8 @@ const router = Router();
 
 router.get('/', postLogin);
 router.post('/register', postRegister);
-router.get('/getPosibleUser', getAllPosibleUser)
+router.post('/solicitud', postPosibleUser);
+
 router.get('/pong', async (req, res) => {
     try {
       const result = await pool.query('SELECT NOW()');
