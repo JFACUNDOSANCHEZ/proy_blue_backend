@@ -13,6 +13,7 @@ const postLogin = async (req, res) => {
         return res.status(400).send('Faltan Datos');
       }
       
+      console.log(user);
       const usuarioValido = await user.findOne({ where: { correoElectronico: correoElectronico } });
   console.log("ACA ESTA EL USUARIO " + usuarioValido);
       if (!usuarioValido) {
