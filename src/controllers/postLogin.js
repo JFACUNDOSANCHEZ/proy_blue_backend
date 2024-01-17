@@ -10,7 +10,7 @@ const postLogin = async (req, res) => {
       const { contraseña, correoElectronico } = req.body;
       
       if (!contraseña || !correoElectronico) {
-        return res.status(400).send('Faltan Datos');
+        return res.status(400).json(User);
       }
       
       console.log(User);
