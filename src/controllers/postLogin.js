@@ -11,6 +11,7 @@ const postLogin = async (req, res) => {
       
       if (!contraseña || !correoElectronico) {
         console.log(User);
+        console.log('Cuerpo de la solicitud:', req.body);
         return res.status(400).send('Dale guachito');
       }
       
