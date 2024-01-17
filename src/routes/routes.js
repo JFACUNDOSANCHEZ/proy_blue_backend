@@ -7,8 +7,10 @@ const  {postPosibleUser} = require('../controllers/postPosibleUser')
 config();
 
 const pool = new pg.Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+      rejectUnauthorized: false
+  }
 });
 
 const router = Router();
