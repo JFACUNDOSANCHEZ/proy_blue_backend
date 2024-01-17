@@ -14,14 +14,14 @@ const postRegister = async (req, res) => {
             res.status(400).send('Faltan Datos')
         } else {
     
-            // const register = await User.create({
-            //     contraseña: contraseña,
-            //     correoElectronico: correoElectronico,
-            //     nombreUsuario: nombreUsuario,
-            //     nombreCompleto: nombreCompleto,
-            // nivel: nivel,
-            // activo: true
-            // })
+             const register = await User.create({
+                 contraseña: contraseña,
+                 correoElectronico: correoElectronico,
+                 nombreUsuario: nombreUsuario,
+                 nombreCompleto: nombreCompleto,
+             nivel: nivel,
+             activo: true
+             })
             console.log(contraseña, correoElectronico, nombreUsuario, nivel, nombreCompleto );
             await Posible.destroy({ where: { correoElectronico: correoElectronico } });
             res.status(200).json({ message: 'Usuario registrado correctamente', user: register });
