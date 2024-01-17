@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 
 
 const postLogin = async (req, res) => {
-  //   try {
+   try {
   //     const { contraseña, correoElectronico } = req.body;
       
   //     if (!contraseña || !correoElectronico) {
