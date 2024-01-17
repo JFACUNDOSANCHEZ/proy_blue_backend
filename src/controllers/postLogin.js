@@ -10,10 +10,10 @@ const postLogin = async (req, res) => {
       const { contraseña, correoElectronico } = req.body;
       
       if (!contraseña || !correoElectronico) {
-        return res.status(400).json(User);
+        console.log(User);
+        return res.status(400).send('Dale guachito');
       }
       
-      console.log(User);
       const usuarioValido = await User.findOne({ where: { correoElectronico: correoElectronico } });
   console.log("ACA ESTA EL USUARIO " + usuarioValido);
       if (!usuarioValido) {
