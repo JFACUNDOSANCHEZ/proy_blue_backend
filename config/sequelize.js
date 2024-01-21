@@ -7,9 +7,15 @@ dotenv.config();
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
   dialectOptions: {
-    ssl: true,
-    rejectUnauthorized: false, 
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,  // Puedes intentar establecer esto en true o false según tu configuración
+      ca: fs.readFileSync(path.resolve(__dirname, 'certificate.pem')).toString(),
+      key: fs.readFileSync(path.resolve(__dirname, 'private_key.pem')).toString(),
+      cert: fs.readFileSync(path.resolve(__dirname, 'certificate.pem')).toString(),
+    },
   },
+
 });
 
 const UserModel = require(path.join(__dirname, '../src/models/Users'));
