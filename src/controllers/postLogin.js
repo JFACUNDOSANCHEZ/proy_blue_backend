@@ -19,7 +19,7 @@ const postLogin = async (req, res) => {
 
     const usuarioValido = await User.findOne({ where: { correoElectronico: correoElectronico } });
     console.log("ACA ESTA EL USUARIO " + usuarioValido);
-
+console.log(usuarioValido);
     if (!usuarioValido) {
       return res.status(408).json({ mensaje: 'Credenciales inválidas' });
     }

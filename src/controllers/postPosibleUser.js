@@ -1,10 +1,11 @@
-const { PosibleUser } = require('../../config/sequelize');
+const { sequelize, User, Posible, PosibleUsers } = require('../../config/sequelize');
 const nodemailer = require('nodemailer');
 const { EMAIL_USER, EMAIL_PASS, JWT_SECRET } = process.env;
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
+console.log(PosibleUsers);
 const generarToken = (datos) => {
  
   return jwt.sign(datos, JWT_SECRET, { expiresIn: '1h' }); 
@@ -12,7 +13,6 @@ const generarToken = (datos) => {
 
 const postPosibleUser = async (req, res) => {
 
-console.log(PosibleUser);
   try {
     const { nombreUsuario, correoElectronico, nombreCompleto, contraseña } = req.body;
     if (!nombreUsuario || !correoElectronico || !nombreCompleto || !contraseña) {
@@ -20,8 +20,8 @@ console.log(PosibleUser);
     } else {
       const token = generarToken({ correoElectronico }); 
       const hashedPassword = await bcrypt.hash(contraseña, 10);
-      console.log(PosibleUser);
-      const solicitud = await PosibleUser.create({ nombreUsuario, correoElectronico, nombreCompleto, contraseña: hashedPassword, token });
+      console.log(PosibleUsers);
+      const solicitud = await PosibleUsers.create({ nombreUsuario, correoElectronico, nombreCompleto, contraseña: hashedPassword, token });
 
       const transporter = nodemailer.createTransport({
         service: 'Gmail',
@@ -30,7 +30,7 @@ console.log(PosibleUser);
           pass: EMAIL_PASS,
         },
       });
-      const confirmacionUrl = `http://localhost:5173/confirmar-correo?token=${token}`; 
+      const confirmacionUrl = `https://proy-blue-3ss4iwfo3-facus-projects-9f3b8a33.vercel.app/confirmar-correo?token=${token}`; 
       const mailOptions = {
         from: EMAIL_USER,
         to: correoElectronico,

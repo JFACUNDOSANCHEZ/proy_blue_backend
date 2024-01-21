@@ -2,6 +2,7 @@ const { Router } = require('express');
 const pg = require("pg")
 const { config } = require("dotenv");
 const { postLogin } = require('../controllers/postLogin');
+const { postConfirmarCorreo } = require('../controllers/postConfirmarCorreo');
 const { postRegister } = require('../controllers/postRegister')
 const { postPosibleUser } = require('../controllers/postPosibleUser')
 config();
@@ -47,6 +48,15 @@ router.get('/prueba', async (req, res) => {
         console.error('Error en la ruta /register:', error);
         res.status(500).json({ error: 'Error interno del servidor' });
     }
+});
+'/confirmar-correo'
+router.post('/confirmar-correo', async (req, res) => {
+  try {
+      await postConfirmarCorreo (req, res);
+  } catch (error) {
+      console.error('Error en la ruta /register:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
+  }
 });
 
 router.get('/pong', async (req, res) => {
