@@ -40,6 +40,14 @@ router.get('/prueba', async (req, res) => {
           res.status(500).json({ error: 'Error interno del servidor' });
       }
   });
+  router.post('/login', async (req, res) => {
+    try {
+        await postLogin(req, res);
+    } catch (error) {
+        console.error('Error en la ruta /register:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+});
 
 router.get('/pong', async (req, res) => {
   try {
