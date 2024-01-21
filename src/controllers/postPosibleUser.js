@@ -24,7 +24,8 @@ const postPosibleUser = async (req, res) => {
       console.log("aca esta el user" + User);
       const solicitud = await PosibleUsers.create({ nombreUsuario, correoElectronico, nombreCompleto, contraseña: hashedPassword, token });
       
-      const transporter = nodemailer.createTransport({
+      const transporter = nodemailer.createTransport( 
+        {
         service: 'Gmail',
         auth: {
           user: EMAIL_USER,
