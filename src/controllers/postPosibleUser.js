@@ -5,14 +5,13 @@ require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-console.log(PosibleUsers);
 const generarToken = (datos) => {
- 
+  
   return jwt.sign(datos, JWT_SECRET, { expiresIn: '1h' }); 
 };
 
 const postPosibleUser = async (req, res) => {
-
+  
   try {
     const { nombreUsuario, correoElectronico, nombreCompleto, contraseña } = req.body;
     if (!nombreUsuario || !correoElectronico || !nombreCompleto || !contraseña) {
@@ -21,8 +20,10 @@ const postPosibleUser = async (req, res) => {
       const token = generarToken({ correoElectronico }); 
       const hashedPassword = await bcrypt.hash(contraseña, 10);
       console.log(PosibleUsers);
+      console.log("aca esta el posible user" + PosibleUsers);
+      console.log("aca esta el user" + User);
       const solicitud = await PosibleUsers.create({ nombreUsuario, correoElectronico, nombreCompleto, contraseña: hashedPassword, token });
-
+      
       const transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
@@ -39,9 +40,9 @@ const postPosibleUser = async (req, res) => {
         <h2>Hola ${nombreUsuario} </h2>
         <p>Por favor, haz clic en el botón de abajo para confirmar tu correo electrónico:</p>
         <a href="${confirmacionUrl}">
-          <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">
-            Confirmar correo electrónico
-          </button>
+        <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">
+        Confirmar correo electrónico
+        </button>
         </a>
       `,
       };

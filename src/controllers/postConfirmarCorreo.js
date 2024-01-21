@@ -10,7 +10,7 @@ const confirmarCorreo = async (req, res) => {
   }
 
   try {
-    const usuario = await PosibleUser.findOne({ where: { token } });
+    const usuario = await PosibleUsers.findOne({ where: { token } });
 
     if (!usuario) {
       return res.status(404).json({ message: 'Token inválido o expirado' });
