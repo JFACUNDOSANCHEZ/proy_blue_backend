@@ -4,7 +4,8 @@ const { config } = require("dotenv");
 const { postLogin } = require('../controllers/postLogin');
 const { postConfirmarCorreo } = require('../controllers/postConfirmarCorreo');
 const { postRegister } = require('../controllers/postRegister')
-const { postPosibleUser } = require('../controllers/postPosibleUser')
+const { postPosibleUser } = require('../controllers/postPosibleUser');
+const { getallUser } = require('../controllers/getAllUsers');
 config();
 
 
@@ -53,6 +54,15 @@ router.get('/prueba', async (req, res) => {
 router.post('/confirmar-correo', async (req, res) => {
   try {
       await postConfirmarCorreo (req, res);
+  } catch (error) {
+      console.error('Error en la ruta /register:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+router.post('/user', async (req, res) => {
+  try {
+      await getallUser (req, res);
   } catch (error) {
       console.error('Error en la ruta /register:', error);
       res.status(500).json({ error: 'Error interno del servidor' });
