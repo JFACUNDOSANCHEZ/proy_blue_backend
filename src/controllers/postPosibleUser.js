@@ -18,6 +18,7 @@ const postPosibleUser = async (req, res) => {
     } else {
       const token = generarToken({ correoElectronico }); 
       const hashedPassword = await bcrypt.hash(contraseña, 10);
+      console.log(PosibleUser);
       const solicitud = await PosibleUser.create({ nombreUsuario, correoElectronico, nombreCompleto, contraseña: hashedPassword, token });
 
       const transporter = nodemailer.createTransport({
