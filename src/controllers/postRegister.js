@@ -4,9 +4,9 @@ const bcrypt = require('bcrypt');
 const postRegister = async (req, res) => {
     console.log(User);
     try {
-        const { contraseña, correoElectronico, nombreUsuario, nivel, nombreCompleto  } = req.body;
+        const { contraseña, correoElectronico, nombreUsuario,  nombreCompleto  } = req.body;
         
-        if (!contraseña || !correoElectronico || !nombreUsuario || !nivel ) {
+        if (!contraseña || !correoElectronico || !nombreUsuario ) {
             res.status(400).send('Faltan Datos')
         } else {
             const register = await User.create({
@@ -14,7 +14,7 @@ const postRegister = async (req, res) => {
                 correoElectronico: correoElectronico,
                 nombreUsuario: nombreUsuario,
                 nombreCompleto: nombreCompleto,
-                nivel: nivel,
+              
                 activo: true
             });
 
