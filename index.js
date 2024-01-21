@@ -1,34 +1,31 @@
-const server = require( './server' );
-// const pg =require("pg")
-// const {config} = require("dotenv");
+const express = require('express');
+const dotenv = require('dotenv');
+const { sequelize } = require('./config/sequelize');  // Aquí se define `sequelize`
+const server = require('./src/server');
 
+dotenv.config();
+const app = express();
 
-// config();
+// Resto del código...
 
-// const pool = new pg.Pool({
-//     connectionString: process.env.DATABASE_URL,
-//     ssl: true
-// });
+sequelize.sync({ force: false })
+  .then(() => {
+    const { User, Posible, PosibleUsers } = require('./config/sequelize');
+    console.log('Tablas sincronizadas');
 
+    // Log de nombres de tablas
+    console.log('Nombre de la tabla User:', User.tableName);
+    console.log('Nombre de la tabla Posible:', Posible.tableName);
+    console.log('Nombre de la tabla PosibleUsers:', PosibleUsers.tableName);
 
+    // Resto del código...
+    app.use(server);
 
-// server.get('/', (req, res) => {
-//     res.send('Hola mundo'); 
-// });
-
-// server.get('/pong', async (req, res) => {
-//     try {
-//       const result = await pool.query('SELECT NOW()');
-//       return res.json(result.rows[0]);
-//     } catch (error) {
-//       console.error('Error executing query:', error);
-//       return res.status(500).json({ error: 'Internal Server Error' });
-//     }
-//   });
-
-
-  server.listen(3000, () => {
-    console.log('Server listening on port 3000');
-});
-
-// module.exports =  pool
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      console.log(`Servidor escuchando en el puerto ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Error al sincronizar tablas:', error);
+  });

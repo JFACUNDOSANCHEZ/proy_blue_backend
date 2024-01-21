@@ -1,4 +1,4 @@
-const { PosibleUser } = require('../models/posibleUser')
+const { PosibleUser } = require('../models/PosibleUsers')
 const nodemailer = require('nodemailer');
 const { EMAIL_USER, EMAIL_PASS, JWT_SECRET } = process.env;
 require('dotenv').config();
