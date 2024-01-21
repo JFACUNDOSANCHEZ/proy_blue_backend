@@ -6,6 +6,8 @@ const { postConfirmarCorreo } = require('../controllers/postConfirmarCorreo');
 const { postRegister } = require('../controllers/postRegister')
 const { postPosibleUser } = require('../controllers/postPosibleUser');
 const { getallUser } = require('../controllers/getAllUsers');
+const { putUser } = require('../controllers/putUser');
+const { getUserId } = require('../controllers/getUserID');
 config();
 
 
@@ -34,14 +36,26 @@ router.get('/prueba', async (req, res) => {
             res.status(500).json({ error: 'Error interno del servidor' });
         }
     });
-  //   router.post('/solicitud', async (req, res) => {
-  //     try {
-  //         await postPosibleUser(req, res);
-  //     } catch (error) {
-  //         console.error('Error en la ruta /register:', error);
-  //         res.status(500).json({ error: 'Error interno del servidor' });
-  //     }
-  // });
+
+
+    router.get('/user/:id', async (req, res) => {
+      try {
+          await getUserId(req, res);
+      } catch (error) {
+          console.error('Error en la ruta /register:', error);
+          res.status(500).json({ error: 'Error interno del servidor' });
+      }
+  });
+
+    router.put('/user/:id', async (req, res) => {
+      try {
+          await putUser(req, res);
+      } catch (error) {
+          console.error('Error en la ruta /register:', error);
+          res.status(500).json({ error: 'Error interno del servidor' });
+      }
+  });
+ 
   router.post('/login', async (req, res) => {
     try {
         await postLogin(req, res);
@@ -50,15 +64,7 @@ router.get('/prueba', async (req, res) => {
         res.status(500).json({ error: 'Error interno del servidor' });
     }
 });
-// '/confirmar-correo'
-// router.post('/confirmar-correo', async (req, res) => {
-//   try {
-//       await postConfirmarCorreo (req, res);
-//   } catch (error) {
-//       console.error('Error en la ruta /register:', error);
-//       res.status(500).json({ error: 'Error interno del servidor' });
-//   }
-// });
+
 
 router.get('/user', async (req, res) => {
   try {
