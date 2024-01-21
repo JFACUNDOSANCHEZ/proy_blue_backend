@@ -1,4 +1,4 @@
-const { PosibleUser } = require('../models/PosibleUsers')
+const { PosibleUser } = require('../../config/sequelize');
 const nodemailer = require('nodemailer');
 const { EMAIL_USER, EMAIL_PASS, JWT_SECRET } = process.env;
 require('dotenv').config();

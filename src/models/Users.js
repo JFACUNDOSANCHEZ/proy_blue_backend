@@ -15,10 +15,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    // nivel: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
+    nivel: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     nombreCompleto: {
       type: DataTypes.STRING,
       allowNull: false
