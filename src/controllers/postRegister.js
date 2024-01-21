@@ -10,7 +10,7 @@ const postRegister = async (req, res) => {
         const level = nivel === null ? 1 : nivel
         const hashedPassword = await bcrypt.hash(contraseña, 10);
     
-        if (!contraseña || !correoElectronico || !nombreUsuario || !level ) {
+        if (!contraseña || !correoElectronico || !nombreUsuario ) {
             res.status(400).send('Faltan Datos')
         } else {
             const register = await User.create({
@@ -18,7 +18,7 @@ const postRegister = async (req, res) => {
                 correoElectronico: correoElectronico,
                 nombreUsuario: nombreUsuario,
                 nombreCompleto: nombreCompleto,
-                nivel: nivel,
+                nivel: level,
                 activo: true
             });
 
