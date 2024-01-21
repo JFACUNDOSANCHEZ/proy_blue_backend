@@ -60,7 +60,7 @@ router.post('/confirmar-correo', async (req, res) => {
   }
 });
 
-router.post('/user', async (req, res) => {
+router.get('/user', async (req, res) => {
   try {
       await getallUser (req, res);
   } catch (error) {
