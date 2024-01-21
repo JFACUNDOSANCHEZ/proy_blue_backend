@@ -17,7 +17,7 @@ module.exports = (sequelize) => {
     },
     nivel: {
       type: DataTypes.STRING,
-      allowNull: false
+   
     },
     nombreCompleto: {
       type: DataTypes.STRING,

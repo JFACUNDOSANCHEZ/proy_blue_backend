@@ -34,14 +34,14 @@ router.get('/prueba', async (req, res) => {
             res.status(500).json({ error: 'Error interno del servidor' });
         }
     });
-    router.post('/solicitud', async (req, res) => {
-      try {
-          await postPosibleUser(req, res);
-      } catch (error) {
-          console.error('Error en la ruta /register:', error);
-          res.status(500).json({ error: 'Error interno del servidor' });
-      }
-  });
+  //   router.post('/solicitud', async (req, res) => {
+  //     try {
+  //         await postPosibleUser(req, res);
+  //     } catch (error) {
+  //         console.error('Error en la ruta /register:', error);
+  //         res.status(500).json({ error: 'Error interno del servidor' });
+  //     }
+  // });
   router.post('/login', async (req, res) => {
     try {
         await postLogin(req, res);
@@ -50,15 +50,15 @@ router.get('/prueba', async (req, res) => {
         res.status(500).json({ error: 'Error interno del servidor' });
     }
 });
-'/confirmar-correo'
-router.post('/confirmar-correo', async (req, res) => {
-  try {
-      await postConfirmarCorreo (req, res);
-  } catch (error) {
-      console.error('Error en la ruta /register:', error);
-      res.status(500).json({ error: 'Error interno del servidor' });
-  }
-});
+// '/confirmar-correo'
+// router.post('/confirmar-correo', async (req, res) => {
+//   try {
+//       await postConfirmarCorreo (req, res);
+//   } catch (error) {
+//       console.error('Error en la ruta /register:', error);
+//       res.status(500).json({ error: 'Error interno del servidor' });
+//   }
+// });
 
 router.get('/user', async (req, res) => {
   try {
