@@ -11,6 +11,8 @@ const generarToken = (datos) => {
 };
 
 const postPosibleUser = async (req, res) => {
+
+console.log(PosibleUser);
   try {
     const { nombreUsuario, correoElectronico, nombreCompleto, contraseña } = req.body;
     if (!nombreUsuario || !correoElectronico || !nombreCompleto || !contraseña) {
