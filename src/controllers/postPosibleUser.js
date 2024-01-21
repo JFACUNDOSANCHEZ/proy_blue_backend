@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt');
 
 const generarToken = (datos) => {
   
-  return jwt.sign(datos, JWT_SECRET, { expiresIn: '1h' }); 
+  return jwt.sign(datos, JWT_SECRET, { expiresIn: '1h'}); 
 };
 
 const postPosibleUser = async (req, res) => {
