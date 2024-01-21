@@ -22,9 +22,7 @@ module.exports = (sequelize) => {
     contraseña: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [6, 20] // Asegura que la longitud de la contraseña esté entre 6 y 20 caracteres
-      }
+      
     },
     token: {
       type: DataTypes.STRING,
