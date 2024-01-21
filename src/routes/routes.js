@@ -6,6 +6,7 @@ const { postRegister } = require('../controllers/postRegister')
 const { getallUser } = require('../controllers/getAllUsers');
 const { putUser } = require('../controllers/putUser');
 const { getUserId } = require('../controllers/getUserID');
+const { postPasseger } = require('../controllers/postPasseger');
 config();
 
 
@@ -45,6 +46,15 @@ router.get('/user/:id', async (req, res) => {
   }
 });
 
+router.get('/get', async (req, res) => {
+  try {
+      const passegers = await getAllPasseger()
+      res.status(200).json(passegers)
+  } catch (error) {
+      res.status(200).json({ message: error.message })
+  }
+});
+
 router.put('/user/:id', async (req, res) => {
   try {
     await putUser(req, res);
@@ -57,6 +67,16 @@ router.put('/user/:id', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     await postLogin(req, res);
+  } catch (error) {
+    console.error('Error en la ruta /register:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+
+router.post('/post', async (req, res) => {
+  try {
+    await postPasseger(req, res);
   } catch (error) {
     console.error('Error en la ruta /register:', error);
     res.status(500).json({ error: 'Error interno del servidor' });

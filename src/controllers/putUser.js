@@ -5,6 +5,7 @@ const { sequelize, User, Posible, PosibleUsers } = require('../../config/sequeli
 const putUser = async (req, res) => {
   const { id } = req.params;
   const { activo, nombreUsuario, nombreCompleto } = req.body;
+console.log(id);
 
   try {
     const usuario = await User.findByPk(id);
