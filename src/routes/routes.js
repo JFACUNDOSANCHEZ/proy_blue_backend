@@ -10,6 +10,8 @@ const { postPasseger } = require('../controllers/postPasseger');
 const { getForName } = require('../controllers/getForName');
 const { getAllPasseger } = require('../controllers/getAllPasseger');
 const { getPass } = require('../controllers/getPassID');
+const { updatePasseger } = require('../controllers/putasseger');
+const { deletPasseger } = require('../controllers/deletPasseger');
 
 config();
 
@@ -109,6 +111,25 @@ router.get('/get/:id', async (req, res) => {
   }
 });
 
+
+router.put('/get/:id', async (req, res) => {
+  try {
+    await updatePasseger(req, res);
+  } catch (error) {
+    console.error('Error en la ruta /register:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+
+router.delete('/get/:id', async (req, res) => {
+  try {
+    await deletPasseger(req, res);
+  } catch (error) {
+    console.error('Error en la ruta /register:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
 
 router.get('/getDNI', async (req, res) => {
   try {
