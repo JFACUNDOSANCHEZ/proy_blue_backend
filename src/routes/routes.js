@@ -7,6 +7,9 @@ const { getallUser } = require('../controllers/getAllUsers');
 const { putUser } = require('../controllers/putUser');
 const { getUserId } = require('../controllers/getUserID');
 const { postPasseger } = require('../controllers/postPasseger');
+const { getForName } = require('../controllers/getForName');
+const { getAllPasseger } = require('../controllers/getAllPasseger');
+
 config();
 
 
@@ -55,6 +58,9 @@ router.get('/get', async (req, res) => {
   }
 });
 
+
+
+
 router.put('/user/:id', async (req, res) => {
   try {
     await putUser(req, res);
@@ -90,6 +96,15 @@ router.get('/user', async (req, res) => {
   } catch (error) {
     console.error('Error en la ruta /register:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+router.get('/getDNI', async (req, res) => {
+  try {
+    await getForName(req, res);
+  } catch (error) {
+    console.error('Error en la ruta /register:', error);
+    res.status(503).json({ error: 'Error interno del servidor' });
   }
 });
 
