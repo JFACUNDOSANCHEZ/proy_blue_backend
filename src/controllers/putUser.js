@@ -4,7 +4,7 @@ const { sequelize, User, Posible, PosibleUsers } = require('../../config/sequeli
 
 const putUser = async (req, res) => {
   const { id } = req.params;
-  const { activo, nombreUsuario, nombreCompleto } = req.body;
+  const { activo, nombreUsuario, nombreCompleto, nivel } = req.body;
 console.log(id);
 
   try {
@@ -21,8 +21,8 @@ console.log(id);
       usuario.nombreCompleto = nombreCompleto;
     }
 
-    if (nombreUsuario) {
-      usuario.nombreUsuario = nombreUsuario;
+    if (nivel) {
+      usuario.nivel = nivel;
     }
 
     await usuario.save();
