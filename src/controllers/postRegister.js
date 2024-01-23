@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const postRegister = async (req, res) => {
     console.log(User);
     try {
-        const { contraseña, correoElectronico, nombreUsuario, nivel, nombreCompleto  } = req.body;
+        const { contraseña, correoElectronico, nivel, nombreCompleto  } = req.body;
         const level = nivel === null ? 1 : nivel
         const hashedPassword = await bcrypt.hash(contraseña, 10);
     
@@ -22,7 +22,7 @@ const postRegister = async (req, res) => {
                 activo: true
             });
 
-            console.log(contraseña, correoElectronico, nombreUsuario, nivel, nombreCompleto );
+            console.log(contraseña, correoElectronico, nivel, nombreCompleto );
          
             res.status(200).json({ message: 'Usuario registrado correctamente', user: register });
         }
