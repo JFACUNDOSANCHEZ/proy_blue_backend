@@ -8,7 +8,7 @@ const app = express();
 
 // Resto del código...
 
-sequelize.sync({ force: true })
+sequelize.sync({ force: false })
   .then(() => {
     const { User, Posible, PosibleUsers, Passeger } = require('./config/sequelize');
     console.log('Tablas sincronizadas');
