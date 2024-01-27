@@ -18,6 +18,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
    
     },
+    nacionalidad: {
+      type: DataTypes.STRING,
+   
+    },
     userId: {
       type: DataTypes.STRING,
       allowNull: false,
