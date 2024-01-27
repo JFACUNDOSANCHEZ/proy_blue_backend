@@ -22,17 +22,13 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
 
 const PassegerModel = require(path.join(__dirname, '../src/models/passenger'));
 const UserModel = require(path.join(__dirname, '../src/models/Users'));
-const PosibleModel = require(path.join(__dirname, '../src/models/Posibles'));
-const PosibleUsersModel = require(path.join(__dirname, '../src/models/PosibleUsers'));
 
 const Passeger = PassegerModel(sequelize);
 const User = UserModel(sequelize);
-const Posible = PosibleModel(sequelize);
-const PosibleUsers = PosibleUsersModel(sequelize);
+
 module.exports = {
   User,
-  Posible,
-  PosibleUsers,
+
   sequelize,
   Passeger
 }

@@ -10,13 +10,12 @@ const app = express();
 
 sequelize.sync({ force: false })
   .then(() => {
-    const { User, Posible, PosibleUsers, Passeger } = require('./config/sequelize');
+    const { User,  Passeger } = require('./config/sequelize');
     console.log('Tablas sincronizadas');
 
     // Log de nombres de tablas
     console.log('Nombre de la tabla User:' , User.tableName);
-    console.log('Nombre de la tabla Posible:' , Posible.tableName);
-    console.log('Nombre de la tabla PosibleUsers:' , PosibleUsers.tableName);
+
     console.log('Nombre de la tabla Passeger:' , Passeger.tableName);
     // Resto del código...
     app.use(server);
