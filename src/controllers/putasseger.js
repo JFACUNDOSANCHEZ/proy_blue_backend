@@ -1,4 +1,4 @@
-const { sequelize, User, Posible, PosibleUsers, Passeger } = require('../../config/sequelize');
+const { sequelize, User, Passeger } = require('../../config/sequelize');
 
 const updatePasseger = async (req, res) => {
   try {

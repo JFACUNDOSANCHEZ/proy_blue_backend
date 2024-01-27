@@ -1,4 +1,4 @@
-const { sequelize, User, Posible, PosibleUsers, Passeger } = require('../../config/sequelize');
+const { sequelize, User,  Passeger } = require('../../config/sequelize');
 
 const deletPasseger = async (req, res) => {
   try {

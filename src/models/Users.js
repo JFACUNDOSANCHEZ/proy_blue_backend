@@ -16,6 +16,11 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
    
     },
+
+    img: {
+      type: DataTypes.STRING,
+   
+    },
     nombreCompleto: {
       type: DataTypes.STRING,
       allowNull: false

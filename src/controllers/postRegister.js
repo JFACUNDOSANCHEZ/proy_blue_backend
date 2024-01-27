@@ -1,4 +1,4 @@
-const { sequelize, User, Posible, PosibleUsers } = require('../../config/sequelize');
+const { sequelize, User, } = require('../../config/sequelize');
 const bcrypt = require('bcrypt');
 
 

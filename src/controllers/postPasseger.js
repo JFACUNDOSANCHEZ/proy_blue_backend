@@ -1,11 +1,11 @@
-const { sequelize, User, Posible, PosibleUsers, Passeger } = require('../../config/sequelize');
+const { sequelize, User, Passeger } = require('../../config/sequelize');
 const postPasseger = async (req, res) => {
     try {
-        const { name, dni, motivo, uId } = req.body
+        const { name, dni, motivo, uId, img } = req.body
         if (!name || !dni || !motivo) {
             res.status(400).send('Faltan Datos')
         } else {
-            const passegerCrated = await Passeger.create({ name, dni, motivo,  userId: uId  });
+            const passegerCrated = await Passeger.create({ name, dni, motivo,  userId: uId,img  });
           
 
           
