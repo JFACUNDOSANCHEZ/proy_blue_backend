@@ -1,5 +1,5 @@
 const {getAllPasseger} = require('./getAllPasseger.js')
-
+const { sequelize, User,  Passeger } = require('../../config/sequelize');
 
 
 const getPass = async (req, res) => {
@@ -10,8 +10,9 @@ const getPass = async (req, res) => {
       }
       
       const {id} =  req.params;
-      const passegers = await getAllPasseger();
-      const passeger = await passegers.find((pass) => pass.id == id)
+      const allPasseger = await Passeger.findAll()
+     
+      const passeger = await allPasseger.find((pass) => pass.id == id)
 
 
       console.log(passeger);

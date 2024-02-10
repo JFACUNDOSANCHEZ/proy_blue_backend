@@ -46,8 +46,8 @@ router.get('/user/:id', async (req, res) => {
 
 router.get('/get', async (req, res) => {
   try {
-      const passegers = await getAllPasseger(req, res)
-      res.status(200).json(passegers)
+       await getAllPasseger(req, res)
+      
   } catch (error) {
       res.status(200).json({ message: error.message })
   }

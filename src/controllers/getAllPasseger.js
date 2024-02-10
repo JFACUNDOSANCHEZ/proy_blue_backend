@@ -11,7 +11,7 @@ try {
 
         const allPasseger = await Passeger.findAll()
         console.log(Passeger);    
-        return allPasseger
+        res.status(200).json(allPasseger)
         
     }
 } catch (error) {
