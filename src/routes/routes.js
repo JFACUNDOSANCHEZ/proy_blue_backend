@@ -22,15 +22,6 @@ const router = Router();
 
 
 
-router.get('/prueba', async (req, res) => {
-
-
-  return res.status(400).send('Dale guachito');
-}
-
-
-)
-
 
 
 
@@ -55,7 +46,7 @@ router.get('/user/:id', async (req, res) => {
 
 router.get('/get', async (req, res) => {
   try {
-      const passegers = await getAllPasseger()
+      const passegers = await getAllPasseger(req, res)
       res.status(200).json(passegers)
   } catch (error) {
       res.status(200).json({ message: error.message })

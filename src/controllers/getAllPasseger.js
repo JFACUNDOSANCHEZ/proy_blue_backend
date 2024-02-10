@@ -7,6 +7,7 @@ try {
         return res.status(401).json({ mensaje: 'Acceso no autorizado. Se requiere un token.' });
     }
     else{
+        console.log('0aca esta eltoken' + token);
 
         const allPasseger = await Passeger.findAll()
         console.log(Passeger);    
