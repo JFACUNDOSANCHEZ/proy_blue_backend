@@ -19,10 +19,10 @@ const postRegister = async (req, res) => {
                
                 nombreCompleto: nombreCompleto,
                 nivel: level,
-                activo: true
+                activo: 'pendiente'
             });
 
-            console.log(contraseña, correoElectronico, nivel, nombreCompleto );
+            console.log(contraseña, correoElectronico, nivel, nombreCompleto, register );
          
             res.status(200).json({ message: 'Usuario registrado correctamente', user: register });
         }
