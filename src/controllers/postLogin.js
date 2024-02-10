@@ -38,7 +38,7 @@ console.log(usuarioValido);
     const token = jwt.sign({ usuarioId: usuarioValido.id, nivel: usuarioValido.nivel }, JWT_SECRET, { expiresIn: '1h' });
     console.log(token);
 
-res.status(200).json({ token: token });
+res.status(200).json({ token:token });
   } catch (error) {
     res.status(515).json({ message: error.message });
   }
