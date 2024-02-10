@@ -4,9 +4,9 @@ const bcrypt = require('bcrypt');
 
 
 const postRegister = async (req, res) => {
-    console.log(User);
+    console.log( 'golaaaaaa' );
     try {
-        const { contraseña, correoElectronico, nivel, nombreCompleto  } = req.body;
+        const { contraseña, correoElectronico, nivel, nombreCompleto,   } = req.body;
         const level = nivel === null ? 1 : nivel
         const hashedPassword = await bcrypt.hash(contraseña, 10);
     
@@ -18,7 +18,9 @@ const postRegister = async (req, res) => {
                 correoElectronico: correoElectronico,
                 nombreCompleto: nombreCompleto,
                 nivel: level,
-                activo: 'pendiente'
+            
+
+
             });
 
             console.log(contraseña, correoElectronico, nivel, nombreCompleto, register );
