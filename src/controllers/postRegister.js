@@ -2,25 +2,23 @@ const { sequelize, User, } = require('../../config/sequelize');
 const bcrypt = require('bcrypt');
 
 
-
 const postRegister = async (req, res) => {
     console.log( 'golaaaaaa' );
     try {
-        const { contraseña, correoElectronico, nivel, nombreCompleto,   } = req.body;
-        const level = nivel === null ? 1 : nivel
+        const { contraseña, correoElectronico, nivel, nombreCompleto } = req.body;
+        const level = nivel === null ? 1 : nivel;
         const hashedPassword = await bcrypt.hash(contraseña, 10);
     
         if (!contraseña || !correoElectronico || !nombreCompleto ) {
-            res.status(400).send('Faltan Datos')
+            res.status(400).send('Faltan Datos');
         } else {
             const register = await User.create({
                 contraseña: hashedPassword,
                 correoElectronico: correoElectronico,
                 nombreCompleto: nombreCompleto,
                 nivel: level,
-            
-
-
+                pendiente: true, // Nuevo campo pendiente
+                activo: false    // Por defecto, el usuario se registra como inactivo
             });
 
             console.log(contraseña, correoElectronico, nivel, nombreCompleto, register );
@@ -29,9 +27,9 @@ const postRegister = async (req, res) => {
         }
     } catch (error) {
         console.log('ACAESTA EL ERROR $=$');
-        res.status(403).json({ message: error.message })
+        res.status(403).json({ message: error.message });
     }
-}
+};
 
 module.exports = {
     postRegister
