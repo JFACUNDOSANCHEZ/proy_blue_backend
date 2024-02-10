@@ -16,7 +16,6 @@ const postRegister = async (req, res) => {
             const register = await User.create({
                 contraseña: hashedPassword,
                 correoElectronico: correoElectronico,
-               
                 nombreCompleto: nombreCompleto,
                 nivel: level,
                 activo: 'pendiente'
