@@ -3,7 +3,11 @@ const jwt = require('jsonwebtoken');
 
 const getUserId = async (req, res) => {
    try{
-   
+      const token = req.headers['authorization'];
+      if (!token) {
+          return res.status(401).json({ mensaje: 'Acceso no autorizado. Se requiere un token.' });
+      } else{
+  
   
       const {id} =  req.params;
 
@@ -11,7 +15,7 @@ const getUserId = async (req, res) => {
   
          
           res.status(200).json(usuario)
-      
+      }
   
       }catch (error) {
    res.status(503).send(error.message);

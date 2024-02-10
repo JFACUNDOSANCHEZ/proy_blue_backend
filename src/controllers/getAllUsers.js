@@ -5,11 +5,13 @@ try {
     const token = req.headers['authorization'];
     if (!token) {
         return res.status(401).json({ mensaje: 'Acceso no autorizado. Se requiere un token.' });
+    } else{
+
+        
+        const allUser = await User.findAll()
+        
+        res.status(200).json(allUser)
     }
-    
-    const allUser = await User.findAll()
- 
-res.status(200).json(allUser)
 } catch (error) {
     res.status(404).json({ message: error.message })
 }
