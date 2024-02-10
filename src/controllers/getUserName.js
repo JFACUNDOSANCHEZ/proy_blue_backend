@@ -2,6 +2,12 @@ const { sequelize, User } = require('../../config/sequelize');
 
 const getUserName = async (req, res) => {
   try {
+    
+    const token = req.headers['authorization'];
+    if (!token) {
+        return res.status(401).json({ mensaje: 'Acceso no autorizado. Se requiere un token.' });
+    }
+    
     const name = req.query.name;
 
     // Validar si 'name' está presente

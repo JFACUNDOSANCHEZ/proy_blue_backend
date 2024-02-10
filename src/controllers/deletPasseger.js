@@ -2,6 +2,7 @@ const { sequelize, User,  Passeger } = require('../../config/sequelize');
 
 const deletPasseger = async (req, res) => {
   try {
+    
     const { id } = req.params;
     const pasajero = await Passeger.findByPk(id);
       console.log(Passeger);

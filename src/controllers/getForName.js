@@ -1,6 +1,11 @@
 const {getAllPasseger} = require('./getAllPasseger.js');
 
 const getForName = async (req, res)=> {
+    const token = req.headers['authorization'];
+    if (!token) {
+        return res.status(401).json({ mensaje: 'Acceso no autorizado. Se requiere un token.' });
+    }
+    
     const  name  = req.query.name;
  try {
         const passegers = await getAllPasseger()

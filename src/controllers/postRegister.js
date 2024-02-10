@@ -27,7 +27,8 @@ const postRegister = async (req, res) => {
             res.status(200).json({ message: 'Usuario registrado correctamente', user: register });
         }
     } catch (error) {
-        res.status(404).json({ message: error.message })
+        console.log('ACAESTA EL ERROR $=$');
+        res.status(403).json({ message: error.message })
     }
 }
 
