@@ -14,7 +14,7 @@ console.log('¡aca esta el userrrrr'+ usuario);
       return res.status(404).json({ mensaje: 'Usuario no encontrado' });
     }
     if (activo) {
-      if (usuario.activo == 'Pendiente' && activo == 'true') {
+      if (activo == 'true') {
         const transporter = nodemailer.createTransport({
           service: 'Gmail',
           auth: {
