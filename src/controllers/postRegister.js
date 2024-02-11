@@ -17,8 +17,7 @@ const postRegister = async (req, res) => {
                 correoElectronico: correoElectronico,
                 nombreCompleto: nombreCompleto,
                 nivel: level,
-                pendiente: true, // Nuevo campo pendiente
-                activo: false    // Por defecto, el usuario se registra como inactivo
+                activo: "Pendiente"   
             });
 
             console.log(contraseña, correoElectronico, nivel, nombreCompleto, register );

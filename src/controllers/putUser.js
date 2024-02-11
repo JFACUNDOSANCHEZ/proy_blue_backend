@@ -28,10 +28,10 @@ console.log('¡aca esta el userrrrr'+ usuario);
       console.log('El campo pendiente está presente en la solicitud');
    
     }
-    if (pendiente) {
-      console.log('aca esta en pendiente' +  pendiente);
-      usuario.pendiente = pendiente;
-    }
+    // console.log('aca esta en pendiente' +  pendiente);
+    // if (pendiente) {
+    //   usuario.pendiente = pendiente;
+    // }
 
     await usuario.save();
 

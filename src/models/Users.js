@@ -26,13 +26,10 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     activo: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+      type: DataTypes.STRING,
+  
     },
-    pendiente: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true
-    }
+  
   }, {
     tableName: 'nombre_de_la_tabla_users', // Reemplaza 'nombre_de_la_tabla_users' con el nombre real de tu tabla Users
     timestamps: true
