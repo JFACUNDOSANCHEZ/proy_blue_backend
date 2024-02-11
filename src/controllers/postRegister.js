@@ -17,7 +17,7 @@ const postRegister = async (req, res) => {
                 correoElectronico: correoElectronico,
                 nombreCompleto: nombreCompleto,
                 nivel: level,
-                activo: "Pendiente"   
+                activo: "pendiente"   
             });
 
             console.log(contraseña, correoElectronico, nivel, nombreCompleto, register );

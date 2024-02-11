@@ -1,10 +1,10 @@
 const { sequelize, User, } = require('../../config/sequelize');
-
-
+const nodemailer = require('nodemailer');
+const { EMAIL_USER, EMAIL_PASS, JWT_SECRET } = process.env;
 
 const putUser = async (req, res) => {
   const { id } = req.params;
-  const { activo,  nombreCompleto, nivel, pendiente } = req.body;
+  const { activo,  nombreCompleto, nivel, correoElectronico } = req.body;
 console.log(id);
 
   try {
@@ -14,25 +14,40 @@ console.log('¡aca esta el userrrrr'+ usuario);
       return res.status(404).json({ mensaje: 'Usuario no encontrado' });
     }
     if (activo) {
-      usuario.activo = activo;
+      if (usuario.activo == 'Pendiente' && activo == 'true') {
+        const transporter = nodemailer.createTransport({
+          service: 'Gmail',
+          auth: {
+            user: EMAIL_USER,
+            pass: EMAIL_PASS,
+          },
+        });
+        const mailOptions = {
+          from: EMAIL_USER,
+          to: usuario.correoElectronico,
+          subject: 'Confirmación de correo electrónico',
+          html: `
+          <h2>Hola ${usuario.nombreCompleto} </h2>
+          <p>Ya eres parte de la comunidad BLU</p>  
+        ` };
+        await transporter.sendMail(mailOptions);
+  
+        usuario.activo = activo
+      }
+        usuario.activo = activo
+
     }
     console.log(usuario.activo+  " aca esta el activo por config   "+activo);
+    if (correoElectronico) {
+      usuario.correoElectronico = correoElectronico;
+    }
     if (nombreCompleto) {
       usuario.nombreCompleto = nombreCompleto;
     }
-
     if (nivel) {
       usuario.nivel = nivel;
     }
-    if (pendiente !== undefined) {
-      console.log('El campo pendiente está presente en la solicitud');
-   
-    }
-    // console.log('aca esta en pendiente' +  pendiente);
-    // if (pendiente) {
-    //   usuario.pendiente = pendiente;
-    // }
-
+  
     await usuario.save();
 
     return res.status(200).json(usuario);
