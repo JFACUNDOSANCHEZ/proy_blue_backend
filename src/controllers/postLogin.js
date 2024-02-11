@@ -12,7 +12,7 @@ const postLogin = async (req, res) => {
     const { contraseña, correoElectronico } = req.body;
 
     if (!contraseña || !correoElectronico) {
-      return res.status(400).send('Dale guachito');
+      return res.status(400).send('Dale');
     }
 
     console.log('Cuerpo de la solicitud:', req.body);
@@ -31,7 +31,7 @@ console.log(usuarioValido);
       return res.status(444).json({ mensaje: 'Credenciales inválidas' });
     }
 
-    if (!usuarioValido.activo) {
+    if (usuarioValido.activo !== 'true') {
       return res.status(403).json({ mensaje: 'El usuario está inactivo. Contacta al administrador.' });
     }
 
