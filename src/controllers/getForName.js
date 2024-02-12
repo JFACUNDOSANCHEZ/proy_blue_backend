@@ -1,4 +1,5 @@
 const {getAllPasseger} = require('./getAllPasseger.js');
+const { sequelize, User,  Passeger } = require('../../config/sequelize');
 
 const getForName = async (req, res)=> {
     const token = req.headers['authorization'];
@@ -8,7 +9,7 @@ const getForName = async (req, res)=> {
     
     const  name  = req.query.name;
  try {
-        const passegers = await getAllPasseger()
+    const passegers = await Passeger.findAll() 
 
         if (name) {
             const passengerFind = passegers.filter((pass) => {
