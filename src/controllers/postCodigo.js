@@ -1,37 +1,39 @@
 const nodemailer = require('nodemailer');
-const { EMAIL_USER, EMAIL_PASS, JWT_SECRET } = process.env;
+const { EMAIL_USER, EMAIL_PASS } = process.env;
 
-const postCodigo =(req, res)=>{
-
+const postCodigo = async (req, res) => {
     const { code, user } = req.body;
     try {
-
         if (code && user) {
             const transporter = nodemailer.createTransport({
-              service: 'Gmail',
-              auth: {
-                user: EMAIL_USER,
-                pass: EMAIL_PASS,
-              },
+                service: 'Gmail',
+                auth: {
+                    user: EMAIL_USER,
+                    pass: EMAIL_PASS,
+                },
             });
-            const mailOptions = {
-              from: EMAIL_USER,
-              to: user,
-              subject: 'Confirmación de correo electrónico',
-              html: `
-              <h2>Hola te enviamos un codigo para verficar tu mail </h2>
-              <p>${code}</p>  
-            ` };
-         transporter.sendMail(mailOptions);
-      
-         res.status(200).json({ code });
-          }
-    } catch (error) {
-        res.status(515).json({ message: error.message });
-    }
 
-}
+            const mailOptions = {
+                from: EMAIL_USER,
+                to: user,
+                subject: 'Confirmación de correo electrónico',
+                html: `
+                    <h2>Hola, desde blu te enviamos un código para verificar tu correo electrónico</h2>
+                    <p>El código de verificación es: <strong>${code}</strong></p>
+                `,
+            };
+
+            await transporter.sendMail(mailOptions);
+            res.status(200).json({ code });
+        } else {
+            res.status(400).json({ error: 'Falta el código o el usuario' });
+        }
+    } catch (error) {
+        console.error('Error al enviar el correo electrónico:', error);
+        res.status(500).json({ error: 'Error interno del servidor al enviar el correo electrónico' });
+    }
+};
 
 module.exports = {
     postCodigo
-  }
+};
