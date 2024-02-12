@@ -31,7 +31,7 @@ console.log(usuarioValido);
       return res.status(444).json({ mensaje: 'Credenciales inválidas' });
     }
 
-    if (usuarioValido.activo !== 'true') {
+    if (usuarioValido.activo !== "true") {
       return res.status(403).json({ mensaje: 'El usuario está inactivo. Contacta al administrador.' });
     }
 

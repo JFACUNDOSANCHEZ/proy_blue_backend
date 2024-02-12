@@ -13,7 +13,7 @@ const { getPass } = require('../controllers/getPassID');
 const { updatePasseger } = require('../controllers/putasseger');
 const { deletPasseger } = require('../controllers/deletPasseger');
 const { getUserName } = require('../controllers/getUserName');
-
+const { postCodigo} = require('../controllers/postCodigo')
 config();
 
 
@@ -75,6 +75,7 @@ router.post('/login', async (req, res) => {
 });
 
 
+
 router.post('/post', async (req, res) => {
   try {
     await postPasseger(req, res);
@@ -103,6 +104,14 @@ router.get('/get/:id', async (req, res) => {
   }
 });
 
+router.post('/confirmar', async (req, res) => {
+  try {
+    await postCodigo(req, res);
+  } catch (error) {
+    console.error('Error en la ruta /register:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
 
 router.put('/get/:id', async (req, res) => {
   try {
