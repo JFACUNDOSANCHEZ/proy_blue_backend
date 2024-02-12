@@ -12,7 +12,8 @@ const postCodigo = async (req, res) => {
                     pass: EMAIL_PASS,
                 },
             });
-
+console.log('aca esta el email user del .env'+EMAIL_USER);
+console.log('aca esta el email user del .env'+EMAIL_PASS);
             const mailOptions = {
                 from: EMAIL_USER,
                 to: user,
