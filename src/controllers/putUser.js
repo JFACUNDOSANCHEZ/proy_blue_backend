@@ -4,7 +4,7 @@ const { EMAIL_USER, EMAIL_PASS, JWT_SECRET } = process.env;
 
 const putUser = async (req, res) => {
   const { id } = req.params;
-  const { activo,  nombreCompleto, nivel, correoElectronico, nacionalidad } = req.body;
+  const { activo,  nombreCompleto, nivel, correoElectronico } = req.body;
 console.log(id);
 
   try {
@@ -43,9 +43,6 @@ console.log('¡aca esta el userrrrr'+ usuario);
     }
     if (nombreCompleto) {
       usuario.nombreCompleto = nombreCompleto;
-    }
-    if (nacionalidad) {
-      usuario.nacionalidad = nacionalidad;
     }
     if (nivel) {
       usuario.nivel = nivel;

@@ -3,7 +3,7 @@ const { sequelize, User, Passeger } = require('../../config/sequelize');
 const updatePasseger = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, dni, motivo } = req.body;
+    const { name, dni, motivo, nacionalidad } = req.body;
 
 
     const pasajero = await Passeger.findByPk(id);
@@ -17,6 +17,9 @@ const updatePasseger = async (req, res) => {
     }
     if (dni) {
       pasajero.dni = dni;
+    }
+    if (nacionalidad) {
+      pasajero.nacionalidad = nacionalidad;
     }
     if (motivo) {
       pasajero.motivo = motivo;
