@@ -54,6 +54,7 @@ console.log('¡aca esta el userrrrr'+ usuario);
   
                   p {
                       margin-bottom: 20px;
+                      color: #ffffff;
                   }
   
                   .button {

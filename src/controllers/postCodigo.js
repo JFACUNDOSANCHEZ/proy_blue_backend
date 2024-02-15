@@ -35,18 +35,18 @@ const mailOptions = {
                 max-width: 600px;
                 margin: 0 auto;
                 padding: 20px;
-                background-color: #fff;
+                background-color: #14553bec; /* Cambio de color a verde */
                 border-radius: 5px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             }
 
             h2 {
-                color:  #14553bec;
+                color: #ffffff;
             }
 
             p {
                 margin-bottom: 20px;
-                       color: #14553bec;
+                color: #ffffff;
             }
 
             .button {
