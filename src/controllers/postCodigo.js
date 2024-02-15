@@ -41,7 +41,7 @@ const mailOptions = {
             }
 
             h2 {
-                color: #007bff;
+                color:  #14553bec;
             }
 
             p {
@@ -51,7 +51,7 @@ const mailOptions = {
             .button {
                 display: inline-block;
                 padding: 10px 20px;
-                background-color: #007bff;
+                background-color:  #14553bec;
                 color: #fff;
                 text-decoration: none;
                 border-radius: 5px;
@@ -63,7 +63,7 @@ const mailOptions = {
             <h2>Hola,</h2>
             <p>Desde BLU te enviamos un código para verificar tu correo electrónico:</p>
             <p>El código de verificación es: <strong>123456</strong></p>
-            <a href="#" class="button">Verificar correo</a>
+        
         </div>
     </body>
     </html>
