@@ -49,7 +49,7 @@ console.log('¡aca esta el userrrrr'+ usuario);
                   }
   
                   h2 {
-                      color: #007bff;
+                      color: #ffffff;
                   }
   
                   p {
