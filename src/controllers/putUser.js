@@ -27,9 +27,55 @@ console.log('¡aca esta el userrrrr'+ usuario);
           to: usuario.correoElectronico,
           subject: 'Confirmación de correo electrónico',
           html: `
-          <h2>Hola ${usuario.nombreCompleto} </h2>
-          <p>Ya eres parte de la comunidad BLU</p>  
-        ` };
+          <html>
+          <head>
+              <title>Confirmación de correo electrónico</title>
+              <style>
+                  body {
+                      font-family: Arial, sans-serif;
+                      color: #333;
+                      background-color: #f9f9f9;
+                      margin: 0;
+                      padding: 0;
+                  }
+  
+                  .container {
+                      max-width: 600px;
+                      margin: 0 auto;
+                      padding: 20px;
+                      background-color: #14553bec; /* Cambio de color a verde */
+                      border-radius: 5px;
+                      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                  }
+  
+                  h2 {
+                      color: #007bff;
+                  }
+  
+                  p {
+                      margin-bottom: 20px;
+                  }
+  
+                  .button {
+                      display: inline-block;
+                      padding: 10px 20px;
+                      background-color: #007bff;
+                      color: #fff;
+                      text-decoration: none;
+                      border-radius: 5px;
+                  }
+              </style>
+          </head>
+          <body>
+              <div class="container">
+                  <h2>Hola ${usuario.nombreCompleto},</h2>
+                  <p>¡Ya eres parte de la comunidad BLU!</p>
+                  <h3>¡Bienvenido!</h3>
+            
+              </div>
+          </body>
+          </html>
+      ` };
         await transporter.sendMail(mailOptions);
   
         usuario.activo = activo
