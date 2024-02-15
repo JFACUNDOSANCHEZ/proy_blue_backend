@@ -23,7 +23,7 @@ console.log('¡aca esta el userrrrr'+ usuario);
           },
         });
         const mailOptions = {
-          from: EMAIL_USER,
+          from: `BLU <${EMAIL_USER}>`,
           to: usuario.correoElectronico,
           subject: 'Confirmación de correo electrónico',
           html: `
