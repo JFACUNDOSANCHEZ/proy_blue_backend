@@ -46,6 +46,7 @@ const mailOptions = {
 
             p {
                 margin-bottom: 20px;
+                       color: #14553bec;
             }
 
             .button {
@@ -63,7 +64,7 @@ const mailOptions = {
             <h2>Hola,</h2>
             <p>Desde BLU te enviamos un código para verificar tu correo electrónico:</p>
             <p>El código de verificación es: <strong>123456</strong></p>
-        
+      
         </div>
     </body>
     </html>
