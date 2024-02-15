@@ -32,7 +32,7 @@ const mailOptions = {
             }
 
             .container {
-                max-width: 600px;
+                max-width: 100%;
                 margin: 0 auto;
                 padding: 20px;
                 background-color: #14553bec; /* Cambio de color a verde */
@@ -63,7 +63,7 @@ const mailOptions = {
         <div class="container">
             <h2>Hola,</h2>
             <p>Desde BLU te enviamos un código para verificar tu correo electrónico:</p>
-            <p>El código de verificación es: <strong>123456</strong></p>
+            <p>El código de verificación es: <strong> ${code} </strong></p>
       
         </div>
     </body>
