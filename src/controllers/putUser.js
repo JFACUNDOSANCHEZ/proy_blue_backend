@@ -71,7 +71,7 @@ console.log('¡aca esta el userrrrr'+ usuario);
               <div class="container">
                   <h2>Hola ${usuario.nombreCompleto},</h2>
                   <p>¡Ya eres parte de la comunidad BLU!</p>
-                  <h3>¡Bienvenido!</h3>
+                  <h2>¡Bienvenido!</h2>
             
               </div>
           </body>
