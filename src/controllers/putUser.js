@@ -40,7 +40,7 @@ console.log('¡aca esta el userrrrr'+ usuario);
                   }
   
                   .container {
-                      max-width: 600px;
+                      max-width: 100%;
                       margin: 0 auto;
                       padding: 20px;
                       background-color: #14553bec; /* Cambio de color a verde */
