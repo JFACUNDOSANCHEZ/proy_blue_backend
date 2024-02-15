@@ -46,7 +46,10 @@ console.log('¡aca esta el userrrrr'+ usuario);
     }
     if (nivel) {
       usuario.nivel = nivel;
+     
     }
+   
+   
   
     await usuario.save();
 

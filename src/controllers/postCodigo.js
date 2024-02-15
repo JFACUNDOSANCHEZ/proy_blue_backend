@@ -14,15 +14,61 @@ const postCodigo = async (req, res) => {
             });
 console.log('aca esta el email user del .env'+EMAIL_USER);
 console.log('aca esta el email user del .env'+EMAIL_PASS);
-            const mailOptions = {
-                from: EMAIL_USER,
-                to: user,
-                subject: 'Confirmación de correo electrónico',
-                html: `
-                    <h2>Hola, desde blu te enviamos un código para verificar tu correo electrónico</h2>
-                    <p>El código de verificación es: <strong>${code}</strong></p>
-                `,
-            };
+const mailOptions = {
+    from: `BLU <${EMAIL_USER}>`,
+    to: user,
+    subject: 'Confirmación de correo electrónico',
+    html: `
+    <html>
+    <head>
+        <title>Confirmación de correo electrónico</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                color: #333;
+                background-color: #f9f9f9;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            h2 {
+                color: #007bff;
+            }
+
+            p {
+                margin-bottom: 20px;
+            }
+
+            .button {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Hola,</h2>
+            <p>Desde BLU te enviamos un código para verificar tu correo electrónico:</p>
+            <p>El código de verificación es: <strong>123456</strong></p>
+            <a href="#" class="button">Verificar correo</a>
+        </div>
+    </body>
+    </html>
+`,
+};
 
             await transporter.sendMail(mailOptions);
             res.status(200).json({ code });
