@@ -42,8 +42,8 @@ const postRegister = async (req, res) => {
             html: `
        
                 <h1>Nuevo registro de usuario en el sistema</h1>
-                <h2>Se ha registrado un nuevo usuario en el sistema.</h2>
-                <h2>Usuario: ${nombreCompleto} Mail: ${correoElectronico}  </h2>
+                <h2>Se ha registrado un nuevo usuario en el sistema.</h2>        
+                <h2>Usuario: ${nombreCompleto}              Mail: ${correoElectronico}  </h2>
                 <h3>Por favor, revisa el panel de administración para más detalles.</h3>
            
             `,
