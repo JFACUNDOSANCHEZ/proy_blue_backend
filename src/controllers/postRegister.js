@@ -46,7 +46,7 @@ const postRegister = async (req, res) => {
             body {
                 font-family: Arial, sans-serif;
                 color: #333;
-                background-color: #f9f9f9;
+
                 margin: 0;
                 padding: 0;
             }
