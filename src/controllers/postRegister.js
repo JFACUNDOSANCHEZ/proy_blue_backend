@@ -40,56 +40,13 @@ const postRegister = async (req, res) => {
             to: adminEmails.join(','), 
             subject: 'Nuevo registro de usuario',
             html: `
-            <head>
-        <title>Confirmación de correo electrónico</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                color: #333;
-
-                margin: 0;
-                padding: 0;
-            }
-
-            .container {
-                max-width: 100%;
-                margin: 0 auto;
-                padding: 20px;
-                background-color: #14553bec; /* Cambio de color a verde */
-                border-radius: 5px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-
-            h2 {
-                color: #ffffff;
-            }
-
-            p {
-                margin-bottom: 20px;
-                color: #ffffff;
-            }
-
-            .button {
-                display: inline-block;
-                padding: 10px 20px;
-                background-color:  #14553bec;
-                color: #fff;
-                text-decoration: none;
-                border-radius: 5px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-                <h2>Nuevo registro de usuario en el sistema</h2>
+       
+                <h1>Nuevo registro de usuario en el sistema</h1>
                 <p>Se ha registrado un nuevo usuario en el sistema.</p>
-                <h1>Usuario: ${nombreCompleto} Mail: ${correoElectronico}  <h1/>
+                <h2>Usuario: ${nombreCompleto} Mail: ${correoElectronico}  </h2>
                 <p>Por favor, revisa el panel de administración para más detalles.</p>
            
-           
-                </div>
-                </body>
-                </html>     `,
+            `,
         };
 
         if (adminEmails.length > 0) {
